@@ -74,16 +74,26 @@
    )
   )
 
+;; Display dot file with xdot 
+(defun display-dot-file ()
+  "Show dot file."
+  (interactive)
+  (shell-command
+   (format "xdot %s" (buffer-file-name) )
+   )
+  )
 
 ;; Bind keys
 (global-set-key (kbd "<f1>") 'menu-bar-open)
-(global-set-key (kbd "<f2>") 'create-tags)
-(global-set-key (kbd "<f3>") 'replace-string)
+(global-set-key (kbd "<f2>") 'speedbar)
+(global-set-key (kbd "<f3>") 'create-tags)
 (global-set-key (kbd "<f4>") 'find-tag)
 (global-set-key (kbd "<f5>") 'pop-tag-mark)
+(global-set-key (kbd "<f6>") 'replace-string)
 (global-set-key (kbd "<f10>") 'linum-mode)
 (global-set-key (kbd "<f11>") 'fci-mode)
-(global-set-key (kbd "<f12>") 'whitespace-mode)
+;;(global-set-key (kbd "<f11>") 'whitespace-mode)
+(global-set-key (kbd "<f12>") 'display-dot-file)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
