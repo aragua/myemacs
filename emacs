@@ -1,3 +1,5 @@
+(message "Entering aragua emacs mode")
+
 (add-to-list 'load-path "~/.emacs.d/" t)
 
 ;;disable backup
@@ -78,9 +80,11 @@
 (defun display-dot-file ()
   "Show dot file."
   (interactive)
-  (shell-command
-   (format "xdot %s" (buffer-file-name) )
-   )
+  (when (string-match "dot" (file-name-extension (buffer-file-name)))
+    (shell-command
+     (format "xdot %s" (buffer-file-name) )
+     )
+    )
   )
 
 ;; Bind keys
